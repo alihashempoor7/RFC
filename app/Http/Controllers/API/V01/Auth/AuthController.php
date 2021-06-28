@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V01\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 use App\User;
 use Carbon\Exceptions\InvalidDateException;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class AuthController extends Controller
             'password' => ['required'],
 
         ]);
-        $this->create($request);
+        resolve(UserRepository::class)->create($request);
+
         return response()->json([
             'massage' => 'user created',
         ], 201);
