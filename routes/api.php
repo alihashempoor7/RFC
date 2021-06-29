@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
 
     Route::prefix('/auth')->group(function () {
-        Route::post('/register', 'API\V01\Auth\AuthController@register')->name('register');
-        Route::post('/login', 'API\V01\Auth\AuthController@login')->name('login');
-        Route::post('/logout', 'API\V01\Auth\AuthController@logout')->name('logout');
-        Route::get('/user', 'API\V01\Auth\AuthController@user')->name('user');
+        Route::post('/register', 'API\v1\Auth\AuthController@register')->name('register');
+        Route::post('/login', 'API\v1\Auth\AuthController@login')->name('login');
+        Route::post('/logout', 'API\v1\Auth\AuthController@logout')->name('logout');
+        Route::get('/user', 'API\v1\Auth\AuthController@user')->name('user');
+    });
+    Route::prefix('/channel')->group(function () {
+        Route::get('/', 'API\v1\Channel\ChannelController@index')->name('channel.index');
+        Route::post('/create', 'API\v1\Channel\ChannelController@create')->name('channel.create');
+        Route::put('/edit', 'API\v1\Channel\ChannelController@edit')->name('channel.edit');
+        Route::delete('/delete', 'API\v1\Channel\ChannelController@destroy')->name('channel.delete');
+
     });
 });

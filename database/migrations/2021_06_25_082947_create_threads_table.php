@@ -21,7 +21,7 @@ class CreateThreadsTable extends Migration
             $table->boolean('flag')->default(1);
             $table->bigInteger('user_id');
             $table->bigInteger('channel_id');
-            $table->bigInteger('best_answer_id');
+            $table->bigInteger('best_answer_id')->nullable();
             $table->timestamps();
         });
     }

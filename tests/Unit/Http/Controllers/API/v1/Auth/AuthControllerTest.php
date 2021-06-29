@@ -1,8 +1,8 @@
 <?php
 
-namespace Http\Controllers\API\V01\Auth;
+namespace Http\Controllers\API\v1\Auth;
 
-use App\Http\Controllers\API\V01\Auth\AuthController;
+use App\Http\Controllers\API\v1\Auth\AuthController;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
