@@ -140,14 +140,15 @@ return [
 
         'store' => 'default',
     ],
-    'default_super_admin_email'=>'alihashempoor7@gmail.com',
 
-    'default_roles'=>[
-      'super admin',
-      'user'
+    'default_super_admin_email' => 'mohsenbostandev@gmail.com',
+
+    'default_roles' => [
+        'Super Admin',
+        'User'
     ],
 
-    'default_permissions'=>[
+    'default_permissions' => [
         'user management',
         'channel management',
         'thread management',

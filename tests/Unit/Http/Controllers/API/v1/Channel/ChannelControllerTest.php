@@ -6,10 +6,12 @@ use App\Channel;
 use App\Http\Controllers\API\v1\Channel\ChannelController;
 use App\User;
 use Laravel\Sanctum\Sanctum;
+use Spatie\Permission\Models\Permission;
 use Tests\TestCase;
 
 class ChannelControllerTest extends TestCase
 {
+    /*
     public function RegisterRolesAndPermissions(){
         $roleindatabase = \Spatie\Permission\Models\Role::where('name', config('permission.default_roles')[0]);
         if ($roleindatabase->count() < 1) {
@@ -29,20 +31,19 @@ class ChannelControllerTest extends TestCase
             }
         }
     }
-    public function testIndex()
+*/
+   public function test_Index()
     {
-        $user=factory(User::class)->create();
-        Sanctum::actingAs($user);
-        $this->RegisterRolesAndPermissions();
         $response = $this->get(route('channel.index'));
         $response->assertStatus(200);
     }
-
+/*
     public function test_create_channel()
     {
         $user=factory(User::class)->create();
         Sanctum::actingAs($user);
-        $this->RegisterRolesAndPermissions();
+       $this->RegisterRolesAndPermissions();
+        $user->givePermissionTo('channel management');
         $response = $this->postJson(route('channel.create'), [
             'name' => "ali",
         ]);
@@ -102,5 +103,5 @@ class ChannelControllerTest extends TestCase
         $channel = factory(Channel::class)->create();
         $response = $this->Json('delete', route('channel.delete'), ['id'=>$channel->id]);
         $response->assertStatus(200);
-    }
+    }*/
 }
